@@ -130,6 +130,8 @@ namespace SkipList2020
                 prevNode[j].Right = node.Right;
                 j++;
             }
+            while (_head[_curLevel].Right == null)
+                _curLevel--;
             Count--;
             return true;
         }

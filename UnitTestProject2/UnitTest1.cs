@@ -1,9 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using SkipList2020;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using SkipList2020;
 
-namespace UnitTestProject
+namespace UnitTestProject2
 {
     [TestClass]
     public class UnitTest1
@@ -77,7 +77,6 @@ namespace UnitTestProject
             {
                 lib.Add(nums[i], i);
             }
-            nums.Sort();
             nums = new List<int>(new[] { 44, 22, 1, 56, 3, 90 });
             nums.Sort();
             lib.Remove(31);
@@ -89,7 +88,7 @@ namespace UnitTestProject
                 Assert.AreEqual(nums[j], pair.Key);
                 j++;
             }
-            Assert.AreEqual(n-3, lib.Count);
+            Assert.AreEqual(n - 3, lib.Count);
 
         }
         [TestMethod]
@@ -119,26 +118,26 @@ namespace UnitTestProject
             }
             for (int i = 0; i < n; i++)
             {
-                lib[i]= i+1;
+                lib[i] = i + 1;
             }
             for (int i = 0; i < n; i++)
             {
-                Assert.AreEqual(i+1, lib[i]);
+                Assert.AreEqual(i + 1, lib[i]);
             }
         }
         [TestMethod]
-        [ExpectedException (typeof(KeyNotFoundException))]
+        [ExpectedException(typeof(KeyNotFoundException))]
         public void CanNotGetWrongIndex()
         {
             var lib = new SkipList<int, int>();
-            var a=lib[15];
+            var a = lib[15];
         }
         [TestMethod]
         [ExpectedException(typeof(KeyNotFoundException))]
         public void CanNotSetOnWrongIndex()
         {
             var lib = new SkipList<int, int>();
-            lib[15]=4;
+            lib[15] = 4;
         }
     }
 }
